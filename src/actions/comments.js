@@ -13,5 +13,6 @@ export async function saveComment({ postId, parentCommentId }, formData) {
   );
 
   revalidatePath(`/post/${postId}`);
-  return { success: true };
+  // Added postId and parentCommentId so more than one comment can be added without refreshing the page, Before the postId was being overwritten
+  return { postId: postId, parentCommentId: parentCommentId, success: true };
 }

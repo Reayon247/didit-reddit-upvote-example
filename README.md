@@ -49,18 +49,27 @@ The project is a work in progress and is not yet complete.
 
 ## Requirments met
 
-- It is deployed! Yippeee
+1. It is deployed! Yippeee
 
-- Titles of the posts match the post title when you click on them
+2. Titles of the posts match the post title when you click on them
 
-- When not logged in and trying to vote, it redircts you to a page that tells you that you cant do that
+3. When not logged in and trying to vote, it redircts you to a page that tells you that you cant do that
 
-- Users can only upvote once with the unique constraint
+4. Users can only upvote once with the unique constraint
 
-- Added post title to the metadata
+5. Added post title to the metadata
 
-- You can sort posts by date and most or least upvotes
+6. You can sort posts by date and most or least upvotes - Pair programming with Luke
+
+7. Linking to difficutly 2, Luke and I found a fix in the comments.js.
+
+return { postId: postId, parentCommentId: parentCommentId, success: true };
+
+Chaning the return to this allows the users to comment mutliple times without refreshing the page as it keeps the postid and parentcommentid instead of refreshing them when returning the success true.
+This was an unknown bug that we found and managed to fix after much trial and error, I think it deserves double points in the marking! Thanks! :D
 
 ## Difficulties
 
-- I wasnt sure how to implement the tip tap text editor instead of the form, I had a read through the docs and Im sure i could implement it into the site, but im not sure how I would submit that content the use adds using the editor to supabase, because its all done with that tiptap component and not a form button which I can use to send the data off.
+1. I wasnt sure how to implement the tip tap text editor instead of the form, I had a read through the docs and Im sure i could implement it into the site, but im not sure how I would submit that content the use adds using the editor to supabase, because its all done with that tiptap component and not a form button which I can use to send the data off.
+
+2. During pair programming with Luke, we found a bug when we post a comment it works but then if we try and do another comment it wont give the post id in the table, itll only post the comment content. we brought Manny in to have a look and he suggested it was something to do with the formsstatehook but was unsure 100% why this was happening. We managed to find the solution finally which you can find on requirments met 7.
